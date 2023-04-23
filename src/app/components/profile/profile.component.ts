@@ -8,6 +8,7 @@ import { ProfileUser } from 'src/app/models/user-profile';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 import { ImageUploadService } from 'src/app/services/image-upload.service';
 import { UsersService } from 'src/app/services/users.service';
+import { Router } from '@angular/router';
 
 @UntilDestroy()
 @Component({
@@ -31,7 +32,8 @@ export class ProfileComponent implements OnInit {
     private authService: AuthenticationService,
     private imageUploadService: ImageUploadService,
     private toast: HotToastService,
-    private usersService: UsersService
+    private usersService: UsersService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -70,5 +72,6 @@ export class ProfileComponent implements OnInit {
         })
       )
       .subscribe();
+      this.router.navigate(['/home']);
   }
 }

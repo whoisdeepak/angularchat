@@ -19,6 +19,7 @@ const routes: Routes = [
     path: '',
     pathMatch: 'full',
     component: LoginComponent,
+    ...canActivate(redirectToHome)
   },
   {
     path: 'login',
